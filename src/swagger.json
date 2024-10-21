@@ -7,7 +7,7 @@
   },
   "servers": [
     {
-      "url": "http://localhost:5000/api/v1"
+      "url": "https://trx-gold.hsdaitrading.com/api/v1"
     }
   ],
   "tags": [
@@ -21,7 +21,9 @@
   "paths": {
     "/auth/register": {
       "post": {
-        "tags": ["Authentication"],
+        "tags": [
+          "Authentication"
+        ],
         "requestBody": {
           "required": true,
           "content": {
@@ -62,7 +64,9 @@
     },
     "/auth/email-verify": {
       "put": {
-        "tags": ["Authentication"],
+        "tags": [
+          "Authentication"
+        ],
         "requestBody": {
           "required": true,
           "content": {
@@ -173,7 +177,9 @@
     },
     "/auth/login": {
       "post": {
-        "tags": ["Authentication"],
+        "tags": [
+          "Authentication"
+        ],
         "requestBody": {
           "required": true,
           "content": {
@@ -214,7 +220,9 @@
     },
     "/auth/user-info": {
       "post": {
-        "tags": ["Authentication"],
+        "tags": [
+          "Authentication"
+        ],
         "requestBody": {
           "required": true,
           "content": {
@@ -316,7 +324,9 @@
     },
     "/auth/resend-code": {
       "post": {
-        "tags": ["Authentication"],
+        "tags": [
+          "Authentication"
+        ],
         "requestBody": {
           "required": true,
           "content": {
@@ -362,7 +372,9 @@
     },
     "/auth/forgot-password": {
       "put": {
-        "tags": ["Authentication"],
+        "tags": [
+          "Authentication"
+        ],
         "requestBody": {
           "required": true,
           "content": {
@@ -475,7 +487,9 @@
     },
     "/admin/all-worker": {
       "get": {
-        "tags": ["Admin"],
+        "tags": [
+          "Admin"
+        ],
         "responses": {
           "201": {
             "description": "Workers Retrieved Successfully",
@@ -563,7 +577,9 @@
     },
     "/admin/all-withdraw": {
       "get": {
-        "tags": ["Admin"],
+        "tags": [
+          "Admin"
+        ],
         "responses": {
           "200": {
             "description": "Withdraw History Retrieved Successfully",
@@ -642,7 +658,9 @@
     },
     "/admin/all-user-profit": {
       "get": {
-        "tags": ["Admin"],
+        "tags": [
+          "Admin"
+        ],
         "responses": {
           "201": {
             "description": "All User Profit retrieved successfully",
@@ -725,7 +743,9 @@
     },
     "/admin/create-site-settings": {
       "post": {
-        "tags": ["Admin"],
+        "tags": [
+          "Admin"
+        ],
         "requestBody": {
           "required": true,
           "content": {
@@ -807,7 +827,9 @@
     },
     "/admin/accept-or-reject-deposits": {
       "patch": {
-        "tags": ["Admin"],
+        "tags": [
+          "Admin"
+        ],
         "requestBody": {
           "required": true,
           "content": {
@@ -844,7 +866,9 @@
     },
     "/admin/update-worker/{workerId}": {
       "patch": {
-        "tags": ["Admin"],
+        "tags": [
+          "Admin"
+        ],
         "parameters": [
           {
             "name": "workerId",
@@ -995,15 +1019,26 @@
                           },
                           "gender": {
                             "type": "string",
-                            "enum": ["Male", "Female", "Other"]
+                            "enum": [
+                              "Male",
+                              "Female",
+                              "Other"
+                            ]
                           },
                           "role": {
                             "type": "string",
-                            "enum": ["user", "admin"]
+                            "enum": [
+                              "user",
+                              "admin"
+                            ]
                           },
                           "accountStatus": {
                             "type": "string",
-                            "enum": ["active", "pending", "inactive"]
+                            "enum": [
+                              "active",
+                              "pending",
+                              "inactive"
+                            ]
                           },
                           "reference": {
                             "type": "string"
@@ -1045,7 +1080,11 @@
                       }
                     }
                   },
-                  "required": ["success", "message", "data"]
+                  "required": [
+                    "success",
+                    "message",
+                    "data"
+                  ]
                 }
               }
             }
@@ -1089,7 +1128,10 @@
           },
           "gender": {
             "type": "string",
-            "enum": ["Male", "Female"],
+            "enum": [
+              "Male",
+              "Female"
+            ],
             "example": "Male"
           },
           "country": {
@@ -1101,7 +1143,12 @@
             "example": ""
           }
         },
-        "required": ["firstName", "lastName", "email", "password"]
+        "required": [
+          "firstName",
+          "lastName",
+          "email",
+          "password"
+        ]
       },
       "EmailVerify": {
         "type": "object",
@@ -1115,7 +1162,10 @@
             "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
           }
         },
-        "required": ["code", "token"]
+        "required": [
+          "code",
+          "token"
+        ]
       },
       "Login": {
         "type": "object",
@@ -1129,7 +1179,10 @@
             "example": "111111"
           }
         },
-        "required": ["email", "password"]
+        "required": [
+          "email",
+          "password"
+        ]
       },
       "UserInfo": {
         "type": "object",
@@ -1139,7 +1192,9 @@
             "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
           }
         },
-        "required": ["token"]
+        "required": [
+          "token"
+        ]
       },
       "ResendCode": {
         "type": "object",
@@ -1150,7 +1205,9 @@
             "example": "istiakahmed@gmail.com"
           }
         },
-        "required": ["email"]
+        "required": [
+          "email"
+        ]
       },
       "ForgotPassword": {
         "type": "object",
@@ -1168,7 +1225,11 @@
             "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
           }
         },
-        "required": ["password", "code", "token"]
+        "required": [
+          "password",
+          "code",
+          "token"
+        ]
       },
       "SiteSettings": {
         "type": "object",
@@ -1214,7 +1275,10 @@
             "example": "active"
           }
         },
-        "required": ["depositId", "activeStatus"]
+        "required": [
+          "depositId",
+          "activeStatus"
+        ]
       },
       "WorkerUpdate": {
         "type": "object",
@@ -1232,7 +1296,11 @@
             "example": 1
           }
         },
-        "required": ["workerLevel", "commistionActive", "commisionPercent"]
+        "required": [
+          "workerLevel",
+          "commistionActive",
+          "commisionPercent"
+        ]
       }
     }
   }
