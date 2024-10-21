@@ -42,7 +42,7 @@ app.use("/api/v1/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerOutput));
 
 app.get("/", (req: Request, res: Response) => {
   res.json({
-    projectName: "Trx Gold Server Is Running (Istiak Ahmed Shawon)!!",
+    projectName: "Trx Gold Server Is Running (Istiak Ahmed Tanzil)!!",
     portNumber: `running the port number ${config.port}`,
   });
 });
