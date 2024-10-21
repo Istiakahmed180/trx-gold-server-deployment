@@ -1,0 +1,1239 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Trx Gold Server API",
+    "version": "1.0.0",
+    "description": "API documentation for the Trx Gold Server"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:5000/api/v1"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Authentication"
+    },
+    {
+      "name": "Admin"
+    }
+  ],
+  "paths": {
+    "/auth/register": {
+      "post": {
+        "tags": ["Authentication"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Register"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Register Successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Register SuccessFull"
+                    },
+                    "data": {
+                      "type": "string",
+                      "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/email-verify": {
+      "put": {
+        "tags": ["Authentication"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmailVerify"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Email Verification Successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Email Verification Successful"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "updateUserStatus": {
+                          "type": "object",
+                          "properties": {
+                            "_id": {
+                              "type": "string",
+                              "example": "670ffdae75d59e3439f8adee"
+                            },
+                            "firstName": {
+                              "type": "string",
+                              "example": "user"
+                            },
+                            "lastName": {
+                              "type": "string",
+                              "example": "2"
+                            },
+                            "email": {
+                              "type": "string",
+                              "example": "ser2@gmail.com"
+                            },
+                            "userId": {
+                              "type": "string",
+                              "example": "use20001"
+                            },
+                            "password": {
+                              "type": "string",
+                              "example": "$2b$12$Z9FXcsIHUM5T1dAYXMLoLOP5gUxRPkMuvisQPK53prG3PYo6ueELe"
+                            },
+                            "image": {
+                              "type": "string",
+                              "example": ""
+                            },
+                            "gender": {
+                              "type": "string",
+                              "example": "Male"
+                            },
+                            "role": {
+                              "type": "string",
+                              "example": "user"
+                            },
+                            "accountStatus": {
+                              "type": "string",
+                              "example": "active"
+                            },
+                            "reference": {
+                              "type": "string",
+                              "example": "OXHBCSCFA"
+                            },
+                            "isDeleted": {
+                              "type": "boolean",
+                              "example": false
+                            },
+                            "isVerified": {
+                              "type": "boolean",
+                              "example": true
+                            },
+                            "createdAt": {
+                              "type": "string",
+                              "example": "2024-10-16T17:53:50.330Z"
+                            },
+                            "updatedAt": {
+                              "type": "string",
+                              "example": "2024-10-16T17:57:03.380Z"
+                            },
+                            "__v": {
+                              "type": "integer",
+                              "example": 0
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/login": {
+      "post": {
+        "tags": ["Authentication"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Login"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Login Successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Login Successful"
+                    },
+                    "data": {
+                      "type": "string",
+                      "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/user-info": {
+      "post": {
+        "tags": ["Authentication"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserInfo"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "User info fetched successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "successfull"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "_id": {
+                          "type": "string",
+                          "example": "670e925fe2a4242460fcb261"
+                        },
+                        "firstName": {
+                          "type": "string",
+                          "example": "Jhon"
+                        },
+                        "lastName": {
+                          "type": "string",
+                          "example": "Wick"
+                        },
+                        "email": {
+                          "type": "string",
+                          "example": "jhon@gmail.com"
+                        },
+                        "userId": {
+                          "type": "string",
+                          "example": "jhoick0001"
+                        },
+                        "image": {
+                          "type": "string",
+                          "example": ""
+                        },
+                        "gender": {
+                          "type": "string",
+                          "example": "Male"
+                        },
+                        "role": {
+                          "type": "string",
+                          "example": "user"
+                        },
+                        "accountStatus": {
+                          "type": "string",
+                          "example": "active"
+                        },
+                        "reference": {
+                          "type": "string",
+                          "example": ""
+                        },
+                        "isDeleted": {
+                          "type": "boolean",
+                          "example": false
+                        },
+                        "isVerified": {
+                          "type": "boolean",
+                          "example": true
+                        },
+                        "createdAt": {
+                          "type": "string",
+                          "example": "2024-10-15T16:03:43.504Z"
+                        },
+                        "updatedAt": {
+                          "type": "string",
+                          "example": "2024-10-15T16:06:41.660Z"
+                        },
+                        "__v": {
+                          "type": "integer",
+                          "example": 0
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/resend-code": {
+      "post": {
+        "tags": ["Authentication"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ResendCode"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Code sent successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Code Send SuccessFull"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "token": {
+                          "type": "string",
+                          "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/forgot-password": {
+      "put": {
+        "tags": ["Authentication"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ForgotPassword"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Password Reset Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Code Send SuccessFull"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "updateUserStatus": {
+                          "type": "object",
+                          "properties": {
+                            "_id": {
+                              "type": "string",
+                              "example": "6710123dfe90dce9c48a4e5a"
+                            },
+                            "firstName": {
+                              "type": "string",
+                              "example": "Istiak"
+                            },
+                            "lastName": {
+                              "type": "string",
+                              "example": "Ahmed"
+                            },
+                            "email": {
+                              "type": "string",
+                              "example": "istiakahmed@gmail.com"
+                            },
+                            "userId": {
+                              "type": "string",
+                              "example": "istmed0008"
+                            },
+                            "password": {
+                              "type": "string",
+                              "example": "$2b$12$BJ5Ka8LAYOlR.Achv5cH8.Wt2L3pFFNtvhiWZBvwEXzRjtrCCfHsm"
+                            },
+                            "image": {
+                              "type": "string",
+                              "example": "profile.jpg"
+                            },
+                            "phone": {
+                              "type": "string",
+                              "example": "+1234567890"
+                            },
+                            "gender": {
+                              "type": "string",
+                              "example": "Male"
+                            },
+                            "role": {
+                              "type": "string",
+                              "example": "user"
+                            },
+                            "accountStatus": {
+                              "type": "string",
+                              "example": "active"
+                            },
+                            "country": {
+                              "type": "string",
+                              "example": "USA"
+                            },
+                            "isDeleted": {
+                              "type": "boolean",
+                              "example": false
+                            },
+                            "isVerified": {
+                              "type": "boolean",
+                              "example": true
+                            },
+                            "createdAt": {
+                              "type": "string",
+                              "format": "date-time",
+                              "example": "2024-10-16T19:21:33.975Z"
+                            },
+                            "updatedAt": {
+                              "type": "string",
+                              "format": "date-time",
+                              "example": "2024-10-16T19:38:22.347Z"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/admin/all-worker": {
+      "get": {
+        "tags": ["Admin"],
+        "responses": {
+          "201": {
+            "description": "Workers Retrieved Successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Workers Retrieved Successfully"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "_id": {
+                            "type": "string",
+                            "example": "670e9906215d5f40ef6df6a3"
+                          },
+                          "inviteID": {
+                            "type": "string",
+                            "example": "QOXHAUSNU"
+                          },
+                          "workerLevel": {
+                            "type": "string",
+                            "example": "1st"
+                          },
+                          "userId": {
+                            "type": "object",
+                            "properties": {
+                              "_id": {
+                                "type": "string",
+                                "example": "670e989a215d5f40ef6df691"
+                              },
+                              "firstName": {
+                                "type": "string",
+                                "example": "Worker"
+                              },
+                              "lastName": {
+                                "type": "string",
+                                "example": "1"
+                              },
+                              "email": {
+                                "type": "string",
+                                "example": "worker1@gmail.com"
+                              },
+                              "userId": {
+                                "type": "string",
+                                "example": "wor10001"
+                              },
+                              "gender": {
+                                "type": "string",
+                                "example": "Male"
+                              },
+                              "role": {
+                                "type": "string",
+                                "example": "worker"
+                              },
+                              "accountStatus": {
+                                "type": "string",
+                                "example": "active"
+                              }
+                            }
+                          },
+                          "commisionPercent": {
+                            "type": "number",
+                            "example": 5
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/admin/all-withdraw": {
+      "get": {
+        "tags": ["Admin"],
+        "responses": {
+          "200": {
+            "description": "Withdraw History Retrieved Successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Withdraw History Retrieved Successfully"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "_id": {
+                            "type": "string",
+                            "example": "6710de9e075be2f3093285d0"
+                          },
+                          "withdrawDate": {
+                            "type": "string",
+                            "example": "17 October 3:53 PM"
+                          },
+                          "withdrawalAmount": {
+                            "type": "number",
+                            "example": 10
+                          },
+                          "approvalStatus": {
+                            "type": "string",
+                            "example": "approved"
+                          },
+                          "paymentMethod": {
+                            "type": "string",
+                            "example": "DBBL"
+                          },
+                          "accountNumber": {
+                            "type": "string",
+                            "example": "0212569858747"
+                          },
+                          "userId": {
+                            "type": "string",
+                            "example": "670ec797b26d9717c5665674"
+                          },
+                          "firstName": {
+                            "type": "string",
+                            "example": "user"
+                          },
+                          "lastName": {
+                            "type": "string",
+                            "example": "3"
+                          },
+                          "email": {
+                            "type": "string",
+                            "example": "user3@gmail.com"
+                          },
+                          "reference": {
+                            "type": "string",
+                            "example": "QOXHAUSNU"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/admin/all-user-profit": {
+      "get": {
+        "tags": ["Admin"],
+        "responses": {
+          "201": {
+            "description": "All User Profit retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "All User Profit retrieved successfully"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "_id": {
+                            "type": "string",
+                            "example": "6710f4fc48f6bb01c150ad62"
+                          },
+                          "depositId": {
+                            "type": "string",
+                            "example": "6710eee9d6c631fc58821b9d"
+                          },
+                          "userId": {
+                            "type": "string",
+                            "example": "670e9f545a43c8e64146131d"
+                          },
+                          "profitCratedDate": {
+                            "type": "string",
+                            "example": "2024-10-17T11:29:00.532Z"
+                          },
+                          "userProfitAmount": {
+                            "type": "number",
+                            "example": 3000
+                          },
+                          "workerCommisitionAmount": {
+                            "type": "number",
+                            "example": 300
+                          },
+                          "reference": {
+                            "type": "string",
+                            "example": "OXHBCSCFA"
+                          },
+                          "isDeleted": {
+                            "type": "boolean",
+                            "example": false
+                          },
+                          "commistionActive": {
+                            "type": "boolean",
+                            "example": true
+                          },
+                          "createdAt": {
+                            "type": "string",
+                            "example": "2024-10-17T11:29:00.879Z"
+                          },
+                          "updatedAt": {
+                            "type": "string",
+                            "example": "2024-10-17T11:29:00.879Z"
+                          },
+                          "__v": {
+                            "type": "number",
+                            "example": 0
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/admin/create-site-settings": {
+      "post": {
+        "tags": ["Admin"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SiteSettings"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Site Settings Created Successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Site Settings Created SuccessFull"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "commisionPercent": {
+                          "type": "number",
+                          "example": 5
+                        },
+                        "siteLogo": {
+                          "type": "string",
+                          "example": "https:demo.img"
+                        },
+                        "minWithdraw": {
+                          "type": "number",
+                          "example": 10
+                        },
+                        "minDiposit": {
+                          "type": "number",
+                          "example": 10
+                        },
+                        "withdrawRequestLimitSingleDay": {
+                          "type": "number",
+                          "example": 3
+                        },
+                        "isDeleted": {
+                          "type": "boolean",
+                          "example": false
+                        },
+                        "_id": {
+                          "type": "string",
+                          "example": "6710f874c392d6183be3cb65"
+                        },
+                        "createdAt": {
+                          "type": "string",
+                          "example": "2024-10-17T11:43:48.241Z"
+                        },
+                        "updatedAt": {
+                          "type": "string",
+                          "example": "2024-10-17T11:43:48.241Z"
+                        },
+                        "__v": {
+                          "type": "number",
+                          "example": 0
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/admin/accept-or-reject-deposits": {
+      "patch": {
+        "tags": ["Admin"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AcceptsOrRejectDeposits"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Operation Successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Operation Successful"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/admin/update-worker/{workerId}": {
+      "patch": {
+        "tags": ["Admin"],
+        "parameters": [
+          {
+            "name": "workerId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "670e9f415a43c8e641461317"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WorkerUpdate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Operation Successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "message": {
+                      "type": "string",
+                      "example": "Worker Update SuccessFull"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "_id": {
+                          "type": "string",
+                          "example": "670e9f415a43c8e641461317"
+                        },
+                        "inviteID": {
+                          "type": "string",
+                          "example": "OXHBCSCFA"
+                        },
+                        "workerLevel": {
+                          "type": "string",
+                          "example": "1st"
+                        },
+                        "userId": {
+                          "type": "string",
+                          "example": "670e9f165a43c8e641461309"
+                        },
+                        "accountStatus": {
+                          "type": "string",
+                          "example": "active"
+                        },
+                        "commistionActive": {
+                          "type": "boolean",
+                          "example": true
+                        },
+                        "commisionPercent": {
+                          "type": "number",
+                          "example": 1
+                        },
+                        "isVerified": {
+                          "type": "boolean",
+                          "example": false
+                        },
+                        "isDeleted": {
+                          "type": "boolean",
+                          "example": false
+                        },
+                        "createdAt": {
+                          "type": "string",
+                          "format": "date-time",
+                          "example": "2024-10-15T16:58:41.875Z"
+                        },
+                        "updatedAt": {
+                          "type": "string",
+                          "format": "date-time",
+                          "example": "2024-10-17T14:58:22.154Z"
+                        },
+                        "__v": {
+                          "type": "integer",
+                          "example": 0
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/admin/all-users": {
+      "get": {
+        "summary": "Get All Users",
+        "description": "Retrieves a list of all users in the system.",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "_id": {
+                            "type": "string"
+                          },
+                          "firstName": {
+                            "type": "string"
+                          },
+                          "lastName": {
+                            "type": "string"
+                          },
+                          "email": {
+                            "type": "string",
+                            "format": "email"
+                          },
+                          "userId": {
+                            "type": "string"
+                          },
+                          "password": {
+                            "type": "string"
+                          },
+                          "image": {
+                            "type": "string"
+                          },
+                          "phone": {
+                            "type": "string"
+                          },
+                          "gender": {
+                            "type": "string",
+                            "enum": ["Male", "Female", "Other"]
+                          },
+                          "role": {
+                            "type": "string",
+                            "enum": ["user", "admin"]
+                          },
+                          "accountStatus": {
+                            "type": "string",
+                            "enum": ["active", "pending", "inactive"]
+                          },
+                          "reference": {
+                            "type": "string"
+                          },
+                          "country": {
+                            "type": "string"
+                          },
+                          "isDeleted": {
+                            "type": "boolean"
+                          },
+                          "isVerified": {
+                            "type": "boolean"
+                          },
+                          "createdAt": {
+                            "type": "string",
+                            "format": "date-time"
+                          },
+                          "updatedAt": {
+                            "type": "string",
+                            "format": "date-time"
+                          },
+                          "__v": {
+                            "type": "integer"
+                          }
+                        },
+                        "required": [
+                          "_id",
+                          "firstName",
+                          "lastName",
+                          "email",
+                          "userId",
+                          "role",
+                          "accountStatus",
+                          "isDeleted",
+                          "isVerified",
+                          "createdAt",
+                          "updatedAt"
+                        ]
+                      }
+                    }
+                  },
+                  "required": ["success", "message", "data"]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Register": {
+        "type": "object",
+        "properties": {
+          "firstName": {
+            "type": "string",
+            "example": "John"
+          },
+          "lastName": {
+            "type": "string",
+            "example": "Doe"
+          },
+          "email": {
+            "type": "string",
+            "format": "email",
+            "example": "john.doe@gmail.com"
+          },
+          "password": {
+            "type": "string",
+            "example": "yourPassword123"
+          },
+          "image": {
+            "type": "string",
+            "example": "profile.jpg"
+          },
+          "phone": {
+            "type": "string",
+            "example": "+1234567890"
+          },
+          "gender": {
+            "type": "string",
+            "enum": ["Male", "Female"],
+            "example": "Male"
+          },
+          "country": {
+            "type": "string",
+            "example": "USA"
+          },
+          "reference": {
+            "type": "string",
+            "example": ""
+          }
+        },
+        "required": ["firstName", "lastName", "email", "password"]
+      },
+      "EmailVerify": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "example": 531467
+          },
+          "token": {
+            "type": "string",
+            "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+          }
+        },
+        "required": ["code", "token"]
+      },
+      "Login": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "example": "jhon@gmail.com"
+          },
+          "password": {
+            "type": "string",
+            "example": "111111"
+          }
+        },
+        "required": ["email", "password"]
+      },
+      "UserInfo": {
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string",
+            "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+          }
+        },
+        "required": ["token"]
+      },
+      "ResendCode": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "format": "email",
+            "example": "istiakahmed@gmail.com"
+          }
+        },
+        "required": ["email"]
+      },
+      "ForgotPassword": {
+        "type": "object",
+        "properties": {
+          "password": {
+            "type": "string",
+            "example": "istiak123"
+          },
+          "code": {
+            "type": "integer",
+            "example": 483587
+          },
+          "token": {
+            "type": "string",
+            "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+          }
+        },
+        "required": ["password", "code", "token"]
+      },
+      "SiteSettings": {
+        "type": "object",
+        "properties": {
+          "commisionPercent": {
+            "type": "number",
+            "example": 5
+          },
+          "siteLogo": {
+            "type": "string",
+            "example": "https:demo.img"
+          },
+          "minWithdraw": {
+            "type": "number",
+            "example": 10
+          },
+          "minDiposit": {
+            "type": "number",
+            "example": 10
+          },
+          "withdrawRequestLimitSingleDay": {
+            "type": "number",
+            "example": 3
+          }
+        },
+        "required": [
+          "commisionPercent",
+          "siteLogo",
+          "minWithdraw",
+          "minDiposit",
+          "withdrawRequestLimitSingleDay"
+        ]
+      },
+      "AcceptsOrRejectDeposits": {
+        "type": "object",
+        "properties": {
+          "depositId": {
+            "type": "string",
+            "example": "6710eee9d6c631fc58821b9d"
+          },
+          "activeStatus": {
+            "type": "string",
+            "example": "active"
+          }
+        },
+        "required": ["depositId", "activeStatus"]
+      },
+      "WorkerUpdate": {
+        "type": "object",
+        "properties": {
+          "workerLevel": {
+            "type": "string",
+            "example": "1st"
+          },
+          "commistionActive": {
+            "type": "boolean",
+            "example": true
+          },
+          "commisionPercent": {
+            "type": "number",
+            "example": 1
+          }
+        },
+        "required": ["workerLevel", "commistionActive", "commisionPercent"]
+      }
+    }
+  }
+}

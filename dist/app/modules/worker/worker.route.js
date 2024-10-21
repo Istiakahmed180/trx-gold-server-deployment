@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.workerRouter = void 0;
+const express_1 = require("express");
+const userProfit_controller_1 = require("../userProfit/userProfit.controller");
+const worker_controller_1 = require("./worker.controller");
+// import adminTokenVerify from "../../middlewares/adminVerify";
+const router = (0, express_1.Router)();
+router.get("/worker-commision/:id", userProfit_controller_1.userProfitController.getWorkerReferencedProfitCommision);
+router.get("/worker-referral-users/:id", worker_controller_1.workerController.getWorkerReferelUsers);
+exports.workerRouter = router;
