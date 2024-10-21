@@ -42,7 +42,7 @@ app.use("/api/v1", routes_1.default);
 app.use("/api/v1/api-docs", swagger_ui_express_1.default.serve, swagger_ui_express_1.default.setup(swagger_json_1.default));
 app.get("/", (req, res) => {
     res.json({
-        projectName: "Trx Gold Server Is Running !!",
+        projectName: "Trx Gold Server Is Running (Istiak Ahmed Shawon)!!",
         portNumber: `running the port number ${config_1.default.port}`,
     });
 });
